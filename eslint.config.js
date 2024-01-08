@@ -3,6 +3,10 @@ const reactPlugin = require('eslint-plugin-react');
 const hooksPlugin = require('eslint-plugin-react-hooks');
 const typescriptParser = require('@typescript-eslint/parser');
 
+const myRules = {
+  '@next/next/inline-script-id': 'off',
+}
+
 module.exports = [
   {
     languageOptions: {
@@ -20,9 +24,10 @@ module.exports = [
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs['core-web-vitals'].rules,
       '@next/next/no-img-element': 'error',
+      ...myRules,
     },
   },
   {
-    ignores: ["./.next/*", "./node_modules/*", "./dist/*"],
+    ignores: ['./.next/*'],
   },
 ];
